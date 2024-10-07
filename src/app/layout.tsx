@@ -1,12 +1,10 @@
-// src/app/layout.tsx
-"use client"; // Додай це на початку файлу
+"use client"; 
 
-import './globals.css';
-import { Inter } from 'next/font/google';
+import '@/globals.css';
 import { Provider } from 'react-redux';
 import store from '@/store';
-
-const inter = Inter({ subsets: ['latin'] });
+import { Footer } from '@/components/Footer/Footer';
+import { Header } from '@/components/Header/Header';
 
 export default function RootLayout({
   children,
@@ -15,10 +13,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
+        <Header />
         <Provider store={store}>
           {children}
         </Provider>
+        <Footer />
       </body>
     </html>
   );
